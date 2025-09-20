@@ -1,55 +1,40 @@
 package se.jensen.elias.dicegame;
-import java.util.Scanner;
-import java.util.Random;
 
+import java.util.Scanner;
 
 public class Menu {
+    Scanner scanner = new Scanner(System.in);
+
     public void menu() {
-        Scanner scanner=new Scanner(System.in);
         boolean go = true;
         while (go) {
-            System.out.println("Welcome to the DiceGame");
+            System.out.println("Welcome to DiceGame!");
             System.out.println(" ");
-            System.out.println("To play press [1]");
-            System.out.println("Quit press [2]");
-            String choice = scanner.nextLine();
-            switch(choice) {
-                case "1":
-                    Random rand = new Random();
-                    System.out.println("Player 1 username");
-                    String player1 = scanner.next();
-                    System.out.println("Player 2 username");
-                    String player2 = scanner.next();
-                    System.out.println("Press enter to begin");
-                    scanner.nextLine();
-                    scanner.nextLine();
-                    int player1Slag1 = rand.nextInt(6) + 1;
-                    int player1Slag2 = rand.nextInt(6) + 1;
-                    int player1Sum =  player1Slag1 + player1Slag2;
+            System.out.println("Press [1] to play");
+            System.out.println("Press [2] to exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-                    int player2Slag1 = rand.nextInt(6) + 1;
-                    int player2Slag2 = rand.nextInt(6) + 1;
-                    int player2Sum =  player2Slag1 + player2Slag2;
-                    System.out.println(player1 + " You got " + player1Sum + "!");
-                    System.out.println(player2 + " You got " + player2Sum + "!");
+            switch (choice) {
+                case 1:
+                    Player player1 = new Player();
+                    System.out.println("Enter firstname player 1: ");
+                    player1.setFirstName(scanner.nextLine());
+                    System.out.println("Enter lastname player 1: ");
+                    player1.setLastName(scanner.nextLine());
 
-                    if(player1Sum == player2Sum) {
-                        System.out.println("It's a tie");
-                    }
-                    else if(player1Sum > player2Sum) {
-                        System.out.println(player1 + " Win!");
-                    }
-                    else {
-                        System.out.println(player2 + " Win!");
-                    }
+                    Player player2 = new Player();
+                    System.out.println("Enter firstname player 2: ");
+                    player2.setFirstName(scanner.nextLine());
+                    System.out.println("Enter lastname player 2: ");
+                    player2.setLastName(scanner.nextLine());
 
-
-
-
+                    Game game = new Game();
+                    game.play(player1, player2);
                     break;
-                    case "2":
-                        scanner.close();
-                        go = false;
+                case 2:
+                    go = false;
+                    break;
             }
         }
     }
