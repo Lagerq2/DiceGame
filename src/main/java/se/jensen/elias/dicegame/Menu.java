@@ -52,7 +52,6 @@ public class Menu {
                     game.play(player1, player2); // kör spelet med objekten/spelarna
                     break;
                 case 2:
-                    scanner.close(); // Stänger Scannern när programmet avslutas
                     go = false; // sätter loopens argument till false, vilket avslutar programmet
                     break;
             }
