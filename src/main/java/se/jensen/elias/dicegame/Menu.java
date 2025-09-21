@@ -8,30 +8,48 @@ public class Menu {
     public void menu() { // menyn som sköter input med mera
         boolean go = true;
         while (go) { // While loop som gör att man kan spela fler gångr
+            System.out.println(" ");
             System.out.println("Welcome to DiceGame!"); // Välkommnar
             System.out.println(" ");
             System.out.println("Press [1] to play"); // Ger val
             System.out.println("Press [2] to exit");
             int choice = scanner.nextInt(); //tar emot svaret
+            if (choice != 1 && choice != 2) {
+                System.out.println("Choose 1 or 2!");
+                continue;
+            }
             scanner.nextLine();
 
             switch (choice) { // En switch som kör koden utifrån valet ovan
                 case 1:
                     Player player1 = new Player(); //Skapa player1 objekt/spelare 1
-                    System.out.println("Enter firstname player 1: ");
-                    player1.setFirstName(scanner.nextLine());// Använder set metod
-                    System.out.println("Enter lastname player 1: ");
-                    player1.setLastName(scanner.nextLine());
+                    while (true) {
+                        try {
+                            System.out.println("Enter firstname player 1: ");
+                            player1.setFirstName(scanner.nextLine());// Använder set metod
+                            System.out.println("Enter lastname player 1: ");
+                            player1.setLastName(scanner.nextLine());
+                            break;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("You have to enter first and last name! Try again.");
+                        }
+                    }
                     // Spelar information
                     Player player2 = new Player(); //Skapar player2 objekt/spelare 2
-                    System.out.println("Enter firstname player 2: ");
-                    player2.setFirstName(scanner.nextLine()); // använder set metod
-                    System.out.println("Enter lastname player 2: ");
-                    player2.setLastName(scanner.nextLine());
+                    while (true) {
+                        try {
 
+                            System.out.println("Enter firstname player 2: ");
+                            player2.setFirstName(scanner.nextLine()); // använder set metod
+                            System.out.println("Enter lastname player 2: ");
+                            player2.setLastName(scanner.nextLine());
+                            break;
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("You have to enter first and last name! Try again.");
+                        }
+                    }
                     Game game = new Game(); // Skapar en instans av klassen Game
                     game.play(player1, player2); // kör spelet med objekten/spelarna
-
                     break;
                 case 2:
                     scanner.close(); // Stänger Scannern när programmet avslutas

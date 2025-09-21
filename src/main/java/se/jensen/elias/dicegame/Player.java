@@ -16,17 +16,20 @@ public class Player {
     }
 
     public void setFirstName(String firstName) {
-
+        if (firstName == null || firstName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Firstname cannot be empty");
+        }
         this.firstName = firstName;
     }
 
     public String getLastName() {
-
         return lastName;
     }
 
     public void setLastName(String lastName) {
-
+        if (lastName == null || lastName.trim().isEmpty()) {
+            throw new IllegalArgumentException("LastName cannot be empty");
+        }
         this.lastName = lastName;
     }
 
