@@ -22,10 +22,6 @@ public class Player {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
     public void setLastName(String lastName) {
         if (lastName == null || lastName.trim().isEmpty()) {
             throw new IllegalArgumentException("LastName cannot be empty");
@@ -43,7 +39,7 @@ public class Player {
         this.score += score;
     }
 
-    public void getFullName() {
-        System.out.println(firstName + " " + lastName);
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }

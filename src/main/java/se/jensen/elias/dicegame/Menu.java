@@ -26,24 +26,22 @@ public class Menu {
         while (true) { // While loop som gör att man kan spela fler gångr
             System.out.println(" ");
             System.out.println("Welcome to DiceGame!"); // Välkommnar
-            System.out.println(" ");
             System.out.println("Press [1] to play"); // Ger val
             System.out.println("Press [2] to exit");
-            int choice = scanner.nextInt(); //tar emot svaret
-            if (choice != 1 && choice != 2) {
+            String choice = scanner.nextLine(); //tar emot svaret
+            if (!choice.equals("1") && !choice.equals("2")) {
                 System.out.println("Choose 1 or 2!");
                 continue;
             }
             scanner.nextLine();
-
             switch (choice) { // En switch som kör koden utifrån valet ovan
-                case 1:
+                case "1":
                    Player player1 =  createPlayer(1);
                    Player player2 =  createPlayer(2);
                    Game game = new Game();
                    game.play(player1, player2);
                     break;
-                case 2:
+                case "2":
                     return;
             }
         }

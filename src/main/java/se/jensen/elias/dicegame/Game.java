@@ -14,20 +14,22 @@ public class Game {
     }
 
     public void play(Player player1, Player player2) {
-        player1.getFullName();
+        for(Player player : new Player[]{player1, player2}) {
+            System.out.println(player.getFirstName() + " turn");
+            player.setScore(rollDice());
+        }
+        /*player1.getFullName();
         System.out.println("turn");
         player1.setScore(rollDice());
 
         player2.getFullName();
         System.out.println("turn");
-        player2.setScore(rollDice());
+        player2.setScore(rollDice());*/
 
         if (player1.getScore() > player2.getScore()) {
-            System.out.print("Winner is: ");
-            player1.getFullName();
+            System.out.print("Winner is: " +  player1.getFullName());
         } else if (player1.getScore() < player2.getScore()) {
-            System.out.print("Winner is: ");
-            player2.getFullName();
+            System.out.print("Winner is: " +  player2.getFullName());
         } else {
             System.out.println("It's a draw!");
         }
