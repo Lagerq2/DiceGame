@@ -6,8 +6,8 @@ public class Game {
     private final Random rand = new Random();
 
     public int rollDice() {
-        int dice1 = rand.nextInt(1, 7);
-        int dice2 = rand.nextInt(1, 7);
+        int dice1 = rand.nextInt(6) + 1;
+        int dice2 = rand.nextInt(6) + 1;
         int sum = dice1 + dice2;
         System.out.println("Dice one: " + dice1 + " Dice two: " + dice2 + " = " + sum);
         return sum;
