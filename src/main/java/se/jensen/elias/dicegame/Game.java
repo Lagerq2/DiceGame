@@ -16,11 +16,11 @@ public class Game {
     public void play(Player player1, Player player2) {
         player1.getFullName();
         System.out.println("turn");
-        player1.addScore(rollDice());
+        player1.setScore(rollDice());
 
         player2.getFullName();
         System.out.println("turn");
-        player2.addScore(rollDice());
+        player2.setScore(rollDice());
 
         if (player1.getScore() > player2.getScore()) {
             System.out.print("Winner is: ");
