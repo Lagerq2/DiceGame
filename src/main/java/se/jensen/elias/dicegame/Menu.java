@@ -5,7 +5,7 @@ import java.util.Scanner; // importerar Scanner så jag kan ta emot användar in
 public class Menu {
     Scanner scanner = new Scanner(System.in); // Skapar en instans av Scanner
 
-    private Player createPlayer(int playerNumber){
+    private Player createPlayer(int playerNumber) {
         Player player = new Player(); //Skapar player objekt
         while (true) {
             try {
@@ -33,13 +33,12 @@ public class Menu {
                 System.out.println("Choose 1 or 2!");
                 continue;
             }
-            scanner.nextLine();
             switch (choice) { // En switch som kör koden utifrån valet ovan
                 case "1":
-                   Player player1 =  createPlayer(1);
-                   Player player2 =  createPlayer(2);
-                   Game game = new Game();
-                   game.play(player1, player2);
+                    Player player1 = createPlayer(1);
+                    Player player2 = createPlayer(2);
+                    Game game = new Game();
+                    game.play(player1, player2);
                     break;
                 case "2":
                     return;
