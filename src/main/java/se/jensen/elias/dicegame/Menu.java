@@ -22,7 +22,6 @@ public class Menu {
     }
 
     public void startMenu() { // menyn som sköter input med mera
-
         while (true) { // While loop som gör att man kan spela fler gångr
             System.out.println(" ");
             System.out.println("Welcome to DiceGame!"); // Välkommnar
