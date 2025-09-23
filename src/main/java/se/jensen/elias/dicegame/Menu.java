@@ -11,11 +11,18 @@ public class Menu {
             try {
                 System.out.println("Enter firstname player " + playerNumber + " : ");
                 player.setFirstName(scanner.nextLine());// Använder set metod
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("You have to enter firstname! Try again.");
+            }
+        }
+        while (true) {
+            try {
                 System.out.println("Enter lastname player " + playerNumber + " : ");
                 player.setLastName(scanner.nextLine());
                 break;
             } catch (IllegalArgumentException e) {
-                System.out.println("You have to enter first and last name! Try again.");
+                System.out.println("You have to enter lastname! Try again.");
             }
         }
         return player;
